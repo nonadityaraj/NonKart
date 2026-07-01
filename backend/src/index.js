@@ -17,12 +17,19 @@ const adminRoutes = require('./routes/adminRoutes')
 const sellerRoutes = require('./routes/sellerRoutes')
 const authRoutes = require('./routes/authRoutes')
 const userRouter = require('./routes/userRoutes')
+const productRoutes = require('./routes/productsRoutes')
+const sellerProductRoutes = require('./routes/sellerProductRouter')
 
 
 app.use('/api/seller',sellerRoutes)
 app.use('/api/admin',adminRoutes)
 app.use('/api/auth',authRoutes)
 app.use('/api/user', userRouter)
+app.use('/product',productRoutes)
+app.use('/api/sellers/product',sellerProductRoutes)
+
+ 
+
 
 
 app.listen(5000,async ()=>{

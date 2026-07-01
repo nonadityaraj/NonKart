@@ -16,11 +16,12 @@ const sellerMiddlewear = async(req,res,next) =>{
                 message :"Invalid token, authorization failed"
             })
         }
-        next();
+      
 
         let email = jwtProvider.getEmailFromjwt(token);
-        const seller = sellerService.getSellerByEmail(email);
+        const seller = await sellerService.getSellerByEmail(email);
         req.seller = seller;
+          next();
 
     } catch (error) {
         res.status(401).json({

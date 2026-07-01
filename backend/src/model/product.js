@@ -14,20 +14,23 @@ const productSchema = new mongoose.Schema({
         trim:true
     },
     mrpPrice:{
-        typeof:Number,
+        type:Number,
         required:true
     },
     sellingPrice:{
         type:Number,
         required:true
     },
-    qunatity:{
-        typeof:Number,
+    quantity:{
+        type:Number,
         required:true
     },
     color:{
         type:[String],
         required:true
+    },
+    discountPercent:{
+        type:Number
     },
     images:{
         type:[String],
@@ -46,7 +49,7 @@ const productSchema = new mongoose.Schema({
     size:{
         type:String,
     }
-})
+},{timestamps:true})
 
 
 const Product = mongoose.model("Product", productSchema)
