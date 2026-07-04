@@ -74,7 +74,7 @@ ecommerce/
 
 ### 1. Clone the repository
 ```bash
-git clone <your-repo-url>
+git clone (https://github.com/nonadityaraj/NonKart.git)
 cd ecommerce
 ```
 
