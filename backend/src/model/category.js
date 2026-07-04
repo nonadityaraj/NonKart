@@ -1,9 +1,8 @@
 const mongoose = require('mongoose')
-const { applyTimestamps } = require('./product')
 
 const categorySchema = new mongoose.Schema({
     name:{
-        type:String
+        type:String,
     },
     categoryId:{
         type:String,
