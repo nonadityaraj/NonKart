@@ -2,8 +2,8 @@ const Category = require("../model/category")
 const Product = require("../model/product")
 
 
-export function calculateDiscountPercentage(mrp,sellingPrice){
-    if (mrp<=0 || sellingPrice<0){
+function calculateDiscountPercentage(mrp,sellingPrice){
+    if (mrp<=0 || sellingPrice<0 || sellingPrice>mrp){
         throw new Error("Price is not Valid")
     }
     const discount = (mrp-sellingPrice)
@@ -38,12 +38,12 @@ class ProductService{
         }
     }
 
-    async createOrGetCategory(categoryId,level,parent= null){
-        let category = await Category.findOne({categoryId})
+    async createOrGetCategory(name, level, parent= null){
+        let category = await Category.findOne({categoryId:name})
         if (!category){
             category = await Category.create({
                 name,
-                categoryId,
+                categoryId:name,
                 level,
                 parentCategory:parent
             })
@@ -118,7 +118,7 @@ class ProductService{
             filterQuery.sellingPrice = {$gte:parseInt(req.minPrice), $lte:parseInt(req.maxPrice)}
         }
         if (req.minDiscount){
-            filterQuery.discountPercent = {$gte:req.minDiscount};
+            filterQuery.discountPercent = {$gte:parseInt(req.minDiscount)};
         }
         if (req.size){
             filterQuery.size = req.size;
@@ -148,4 +148,5 @@ class ProductService{
 
 }
 
-module.exports = new ProductService();
+module.exports = new ProductService()
+module.exports.calculateDiscountPercentage = calculateDiscountPercentage;

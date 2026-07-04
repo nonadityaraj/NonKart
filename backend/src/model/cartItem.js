@@ -13,7 +13,7 @@ const cartItemSchema = mongoose.Schema({
         required:true
     },
     size:{
-        type:Number,
+        type:String,
         required:true
     },
     quantity:{
@@ -25,7 +25,7 @@ const cartItemSchema = mongoose.Schema({
         type:Number,
         required:true
     },
-    selllingPrice:{
+    sellingPrice:{
         type:Number,
         required:true
     },
