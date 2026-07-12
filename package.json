@@ -5,6 +5,7 @@
     "@mui/icons-material": "^9.2.0",
     "@mui/material": "^9.2.0",
     "@tailwindcss/vite": "^4.3.2",
+    "react-router": "^8.2.0",
     "tailwind": "^4.0.0"
   }
 }

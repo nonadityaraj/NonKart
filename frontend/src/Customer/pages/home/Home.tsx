@@ -2,14 +2,13 @@ import Electronic from './ECategory/electronic'
 import Grid from './grid/Grid'
 import Deal from './Deal/Deal'
 import ShopByCategoryContainer from './ShopByCateGory/ShopByCategoryContainer'
-import Navbar from '../../Title/Navbar'
+import Navbar from '../../components/Navbar'
 import { Button } from '@mui/material'
 import StoreIcon from '@mui/icons-material/Store';
 
 const Home = () => {
   return (
     <div>
-        <Navbar/>
         <Electronic/>
         <section>
           <Grid/>
@@ -20,7 +19,7 @@ const Home = () => {
         <section>
           <ShopByCategoryContainer/>
         </section>
-        <section className='px-4 sm:px-8 md:px-12 lg:px-20 relative h-[250px] md:h-[400px] w-full mt-10 md:mt-16'>
+        <section className='px-4 sm:px-8 md:px-12 mb-[20rem] lg:px-20 relative h-[250px] md:h-[400px] w-full mt-10 md:mt-16'>
           <div className='relative w-full h-full rounded-xl overflow-hidden shadow-lg'>
             <img 
               className='w-full h-full object-cover' 

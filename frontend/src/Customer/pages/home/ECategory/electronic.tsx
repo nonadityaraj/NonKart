@@ -1,3 +1,4 @@
+import { Divider } from '@mui/material'
 import ElectronicCard from './electronicCard'
 
 
@@ -42,8 +43,12 @@ const electronics = [
 
 const Electronic = () => {
   return (
-    <div className='flex overflow-x-auto gap-8 py-5 px-4 sm:px-8 md:px-12 lg:px-20 lg:justify-between scrollbar-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden'>
+    <div className='mb-[60px]'>
+    <div className='flex overflow-x-auto gap-8 py-5 px-4 sm:px-8 md:px-12 lg:px-20  lg:justify-between scrollbar-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden'>
         {electronics.map((a)=><ElectronicCard key={a.categoryId} item={a}/>)}
+        
+    </div>
+    <Divider/>
     </div>
   )
 }

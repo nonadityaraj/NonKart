@@ -5,4 +5,9 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  // Ensure a single copy of React is ever bundled — prevents
+  // "Invalid hook call" from duplicate React instances.
+  resolve: {
+    dedupe: ['react', 'react-dom'],
+  },
 })
