@@ -3,6 +3,7 @@ import womenSubCategories from '../data/subcategory/women'
 import electronicsSubCategories from '../data/subcategory/electronics'
 import homeAndFurnitureSubCategories from '../data/subcategory/home&furniture'
 import { Typography } from '@mui/material'
+import { useNavigate } from 'react-router'
 
 export type CategoryKey = 'men' | 'women' | 'electronics' | 'home&furniture' | null;
 
@@ -28,7 +29,7 @@ const CategorySheet = ({
   } else if (activeCategory === 'home&furniture') {
     subCategories = homeAndFurnitureSubCategories;
   }
-
+const navigate = useNavigate()
   return (
     <div 
       onMouseEnter={onMouseEnter}
@@ -51,14 +52,14 @@ const CategorySheet = ({
               </Typography>
               
               {/* Category Link Items */}
-              <ul className="space-y-1.5">
-                {sub.items.map((item, idx) => (
-                  <li key={idx}>
-                    <a 
-                      href="#" 
-                      className="text-[11px] text-gray-650 hover:text-teal-600 transition-colors block py-0.5 font-semibold"
+              <ul  className="space-y-1.5">
+                {sub.items.map((item) => (
+                  <li key={item.id}>
+                    <a onClick={()=>navigate('/products/:categoryId')}
+                      href="#"
+                      className="text-[15px] text-gray-500 hover:text-teal-600 transition-colors block py-0.5 font-semibold"
                     >
-                      {item}
+                      {item.name}
                     </a>
                   </li>
                 ))}
